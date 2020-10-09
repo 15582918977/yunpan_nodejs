@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .bounce-enter-active{
+            animation:bounce-in .5s;
+        }
+        .bounce-leave-active{
+            animation:bounce-in .5s reverse;
+        }
+        @keyframes  bounce-in {
+            0%{
+                transform:scale(0);
+            }
+            50%{
+                transform: scale(1.5);
+            }
+            100%{
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+<div id="list-demo" class="demo">
+    <button v-on:click="add">add</button>
+    <button v-on:click="remove">remove</button>
+    <transition-group name="list" tag="p">
+        <span v-for="item in items" v-bind:key="item" class="list-item">
+            {{item}}
+        </span>
+    </transition-group>
+</div>
+
+<script src="./vue-2.4.0.js"></script>
+<script>
+new Vue({
+    el:"#list-demo",
+    data:{
+        item:[1,2,3,4,5,6,7,8,9],
+        nextNum:10
+    },
+    methods:{
+        randomIndex:function(){
+
+        }
+    }
+})
+</script>
+</body>
+</html>
